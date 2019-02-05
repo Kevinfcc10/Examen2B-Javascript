@@ -9,8 +9,6 @@ module.exports = {
 
   attributes: {
 
-
-
     nombre_evento: {
       type: 'string',
       required: true
@@ -30,7 +28,6 @@ module.exports = {
       type: 'number',
       required: true
     },
-
 
     //Relation tabla Materia
   materiafk: {

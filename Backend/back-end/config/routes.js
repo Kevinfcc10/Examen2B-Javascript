@@ -20,19 +20,28 @@ module.exports.routes = {
 
   /*Rutas para Usuario*/
   'POST /Usuario/crear': 'UsuarioController.crearUsuario',
-  'GET /Usuario/buscar' : 'UsuarioController.buscarUsuario',
+  'POST /Usuario/crearUsuarioRol': 'UsuarioController.agregarRol',
   'GET /Usuario/buscarRol' : 'UsuarioController.buscarUsuarioRol',
   'GET /Usuario/buscarEstudiante' : 'UsuarioController.buscarUsuarioMaterias',
-  'PUT /Usuario/actualizar/:id': 'UsuarioController.actualizarUsuario',
-  'DELETE /Usuario/borrar/:id': 'UsuarioController.borrarUsuario',
+  'PUT /Usuario/:id': 'UsuarioController.actualizarUsuario',
+  'DELETE /Usuario/:id': 'UsuarioController.borrarUsuario',
 
   /*Rutas para Estudiante*/
-  'GET /Estudiante/buscar/:id': 'EstudianteController.buscarEstudianteMateria',
-  'POST /Estudiante/crear': 'EstudianteController.crearEstudiante',
-  'PUT /Estudiante/actualizar/:id': 'EstudianteController.actualizarEstudiante',
-  'DELETE /Estudiante/borrar/:id': 'EstudianteController.borrarEstudiante',
+  'GET /Estudiante/:id': 'EstudianteController.buscarEstudianteMateria',
+  'POST /Estudiante/': 'EstudianteController.crearEstudiante',
+  'PUT /Estudiante/:id': 'EstudianteController.actualizarEstudiante',
+  'DELETE /Estudiante/:id': 'EstudianteController.borrarEstudiante',
 
   /*Rutas para Materia*/
+  'GET /Materia/:id': 'MateriaController.buscarMateria',
+  'POST /Materia/': 'MateriaController.crearMateria',
+  'POST /Materia/agregarEvento': 'MateriaController.agregarEvento',
+  'PUT /Materia/:id': 'MateriaController.actualizarMateria',
+  'DELETE /Materia/:id': 'MateriaController.borrarMateria',
 
   /*Rutas para Eventos*/
+  'GET /Evento/:id':'EventoController.buscarEvento',
+  'POST /Evento/':'EventoController.crearEvento',
+
+
 };

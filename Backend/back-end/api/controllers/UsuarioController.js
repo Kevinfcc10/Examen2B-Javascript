@@ -23,18 +23,15 @@ module.exports = {
     return res.ok(usuarioCreado);
   },
 
-//Posiblemente eliminar este método
-  buscarUsuario: async function (req, res) {
+
+  agregarRol: async function (req, res) {
+
     const param = req.allParams();
 
-    var usuarioEncontrado = await  Usuario.find({
-      nombre_usuario: {'startsWith': param.nombre}
-    })
+    var usuario = await Usuario.addToCollection(param.idUser, 'rolfk').members([param.idRol]);
 
-    console.log(usuarioEncontrado.id)
-    return res.ok(usuarioEncontrado);
+    return res.ok('Rol agregado exitosamente');
   },
-
 
   buscarUsuarioRol: async function (req, res) {
     const param = req.allParams();
@@ -57,7 +54,6 @@ module.exports = {
     console.log(usuarioEncontrado);
     return res.ok(usuarioEncontrado);
   },
-
 
   actualizarUsuario: async function (req,res){
     const param = req.allParams();
