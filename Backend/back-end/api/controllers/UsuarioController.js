@@ -37,10 +37,19 @@ module.exports = {
     const param = req.allParams();
 
     var usuarioEncontrado = await  Usuario.find({
-      nombre_usuario: {'startsWith': param.nombre}
+      correo_usuario: {'startsWith': param.correo},
+      password_usuario: param.pass
     }).populate('rolfk');
 
     console.log(usuarioEncontrado);
+    return res.ok(usuarioEncontrado);
+  },
+
+  buscarUsuarioid: async function (req, res){
+    const param = req.allParams();
+    var usuarioEncontrado = await  Usuario.find({
+      id: {'startsWith': param.id},
+    }).populate('estudiantes');
     return res.ok(usuarioEncontrado);
   },
 
@@ -48,7 +57,7 @@ module.exports = {
     const param = req.allParams();
 
     var usuarioEncontrado = await  Usuario.find({
-      nombre_usuario: {'startsWith': param.nombre}
+      id: param.id
     }).populate('estudiantes');
 
     console.log(usuarioEncontrado);

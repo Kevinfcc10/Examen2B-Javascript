@@ -1,3 +1,68 @@
-<p>
-  roles works!
-</p>
+<div class="ui-g ui-fluid">
+  <div class="ui-lg-2"></div>
+  <div class="ui-lg-3 ui-g-3">
+    <h3 align="center">USUARIO</h3>
+    <br>
+    <p-table [columns]="cols2" [value]="informacion">
+
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns">
+              {{rowData[col.field2]}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="ui-lg-3">
+    <h3 align="center">ROLES</h3>
+    <br>
+    <p-table [columns]="cols" [value]="roles">
+
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns;let indice = index">
+            <div align="center">
+
+              <div class="ui-g ui-fluid">
+                <div class="ui-g-8 ui-gl-4 ui-sm-8">
+                  {{rowData[col.field]}}
+                </div>
+                <div class="ui-gl-4">
+                  <p-button icon="pi pi-times"></p-button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="ui-lg-2" align="center">
+    <br><br><br>
+    <div>
+      <br>
+      <select>
+        <option value="rol" disabled="true">Roles</option>
+        <option value="usuario">USUARIO</option>
+        <option value="administrador">ADMINISTRADOR</option>
+      </select>
+    </div>
+    <div>
+      <br><br><br>
+      <div class="ui-g ui-fluid">
+        <div class="ui-md-2"></div>
+        <div class="ui-md-8">
+          <button pButton type="button" label="Agregar Rol"></button>
+        </div>
+        <div class="ui-md-1"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ui-lg-2"></div>
+</div>
+

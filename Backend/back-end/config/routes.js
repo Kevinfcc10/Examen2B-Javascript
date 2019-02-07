@@ -21,8 +21,9 @@ module.exports.routes = {
   /*Rutas para Usuario*/
   'POST /Usuario/crear': 'UsuarioController.crearUsuario',
   'POST /Usuario/crearUsuarioRol': 'UsuarioController.agregarRol',
-  'GET /Usuario/buscarRol' : 'UsuarioController.buscarUsuarioRol',
-  'GET /Usuario/buscarEstudiante' : 'UsuarioController.buscarUsuarioMaterias',
+  'GET /Usuario/buscarRol' : 'UsuarioController.buscarUsuarioRol', // login
+  'GET /Usuario/:id' : 'UsuarioController.buscarUsuarioid',
+  'GET /Usuario/buscarEstudiante/:id' : 'UsuarioController.buscarUsuarioMaterias', // una vez logueado
   'PUT /Usuario/:id': 'UsuarioController.actualizarUsuario',
   'DELETE /Usuario/:id': 'UsuarioController.borrarUsuario',
 

@@ -1,0 +1,11 @@
+.borde{
+  border-style: solid;
+  border-width: 2.5px;
+  border-color: #292929;
+  text-align: center;
+  cursor:pointer;
+}
+
+.borde:hover{
+  border-color: #8d8d8d;
+}

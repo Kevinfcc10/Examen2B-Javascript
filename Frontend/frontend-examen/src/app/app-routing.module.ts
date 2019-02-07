@@ -6,6 +6,9 @@ import {RolesComponent} from "./componentes/roles/roles.component";
 import {RegistroComponent} from "./componentes/registro/registro.component";
 import {EventosComponent} from "./componentes/eventos/eventos.component";
 import {Ruta404Component} from "./componentes/ruta404/ruta404.component";
+import {HomeComponent} from "./componentes/home/home.component";
+import {UsuarioComponent} from "./componentes/usuario/usuario.component";
+import {InformacionEventoComponent} from "./componentes/informacion-evento/informacion-evento.component";
 
 const routes: Routes = [
   {
@@ -17,10 +20,7 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
-  {
-    path: 'administrador',
-    component: AdministradorComponent
-  },
+
   {
     path: 'roles',
     component: RolesComponent
@@ -30,8 +30,27 @@ const routes: Routes = [
     component: RegistroComponent
   },
   {
-    path: 'eventos',
-    component: EventosComponent
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      {
+        path: 'usuario',
+        component: UsuarioComponent
+      },
+      {
+        path: 'eventos',
+        component: EventosComponent
+      },
+      {
+        path: 'administrador',
+        component: AdministradorComponent
+      },
+
+    ]
+  },
+  {
+    path: 'ver',
+    component: InformacionEventoComponent
   },
   {
     path: 'no-encontrado',
