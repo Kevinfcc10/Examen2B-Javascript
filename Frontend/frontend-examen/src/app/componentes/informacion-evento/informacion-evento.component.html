@@ -1,21 +1,21 @@
 <div class="ui-g ui-lg ui-fluid">
-  <div class="ui-lg-2 ui-g-2" align="center">
-    <label>Nombre Evento</label>
+  <div class="ui-lg-4 ui-g-4" align="center">
+    <h2>{{nombreEvento}}</h2>
   </div>
-  <div class="ui-lg-10 ui-g-10"></div>
+  <div class="ui-lg-8 ui-g-8"></div>
 </div>
 
 
 <div class="ui-g ui-lg  ui-fluid">
   <div class="ui-g-2"></div>
-  <div class="ui-g-3" *ngFor="let valor of arreglo">
+  <div class="ui-g-3" *ngFor="let valor of arregloMateriaFK[0]">
       <app-atributos-materia
-        [nombre]="valor.nombre"
-        [codigo]="valor.codigo"
-        [descripcion]="valor.descripcion"
-        [activo]="valor.activo"
-        [fechaCreacion]="valor.fecha"
-        [horas]="valor.horas"
+        [nombre]="valor.nombre_materia"
+        [codigo]="valor.nombre_materia"
+        [descripcion]="valor.descripcion_materia"
+        [activo]="valor.activo_materia"
+        [fechaCreacion]="valor.fecha_creacion_materia"
+        [horas]="valor.numero_horas_por_semana"
       ></app-atributos-materia>
   </div>
   <div class="ui-g-2"></div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {NavigationExtras, Router} from "@angular/router";
+import {VariablesGlobales} from "../servicios/variablesGlobales";
+import {UsuarioInterface, UsuarioService} from "../servicios/usuario-service";
 
 @Component({
   selector: 'app-administrador',
@@ -9,32 +11,54 @@ import {Router} from "@angular/router";
 export class AdministradorComponent implements OnInit {
 
   constructor(
-    private _router: Router
+    private _router: Router,
+    private _userService: UsuarioService,
   ) { }
 
-  sales: any[];
-  cols: any[];
+  usersAux: any[];
+  busqueda = ''
+  estadoAdmin:boolean =false;
+
+  cols: any[] = [
+    { field: 'nombre_usuario', header: 'Nombre' },
+    { field: 'correo_usuario', header: 'Correo' },
+    { field: 'fecha_nacimiento_usuario', header: 'Fecha nacimiento' },
+    { field: 'acciones', header: 'Acciones' }
+  ];
+
 
   ngOnInit() {
-    this.cols = [
-      { field: 'nombre', header: 'Nombre' },
-      { field: 'correo', header: 'Correo' },
-      { field: 'nacimiento', header: 'Fecha nacimiento' },
-      { field: 'acciones', header: 'Acciones' }
-    ];
-
-    this.sales = [
-      { nombre: 'Apple', correo: '51%', nacimiento: '40%'},
-      { nombre: 'Samsung', correo: '83%', nacimiento: '96%'},
-      { nombre: 'Microsoft', correo: '38%', nacimiento: '5%'},
-      { nombre: 'Philips', correo: '49%', nacimiento: '22%'},
-      { nombre: 'Song', correo: '17%', nacimiento: '79%' },
-    ];
+    if(this.estadoAdmin == false){
+      console.log('estado igual falso')
+    }
+    else {
+      if(VariablesGlobales.idUser > 0){
+        this.obtenerUsuarios();
+      }
+    }
 
   }
 
-  irRoles(){
-    this._router.navigate(['/roles']);
+  obtenerUsuarios(){
+    const obsevable$ = this._userService.findUsers(this.busqueda);
+    obsevable$.subscribe(
+      (resultado:any)=>{
+          this.usersAux = resultado;
+          console.log(this.usersAux )
+      }
+    )
+  }
+
+  capturarInformacion(){
+    this.estadoAdmin = true;
+    this.ngOnInit();
+  }
+
+  irRoles(userSelect: UsuarioInterface){
+    let parametros : NavigationExtras  = {
+      queryParams: {idUser1: userSelect.id}
+    }
+    this._router.navigate(['/roles'],parametros);
   }
 
   eliminar(){

@@ -7,7 +7,7 @@
         <i class="pi pi-search"></i>
       </span>
       <input type="text" pInputText placeholder="Busque eventos por nombre">
-      <button pButton type="button" icon="fa fa-superpowers" class="ui-button-warn" label="Buscar"></button>
+      <button pButton type="button" icon="fa fa-superpowers" class="ui-button-warn" label="Buscar" (click)="capturarInformacion()"></button>
     </div>
   </div>
   <div class="ui-g-12 ui-md-3"></div>
@@ -17,7 +17,7 @@
 <div class="ui-g ui-fluid">
   <div class="ui-g-12 ui-lg-1"></div>
   <div class="ui-g-12 ui-lg-10">
-    <p-table [columns]="cols" [value]="sales">
+    <p-table [columns]="cols" [value]="eventosAux">
       <ng-template pTemplate="header" let-columns>
         <tr>
           <th *ngFor="let col of columns">
@@ -32,7 +32,7 @@
               <div class="ui-g ui-fluid">
                 <div class="ui-g-4 ui-lg-4"></div>
                 <div class="ui-g-4 ui-lg-4">
-                  <button pButton type="button" icon="pi pi-eye" class="ui-button-warn" label="Ver" (click)="irRoles()"></button>
+                  <button pButton type="button" icon="pi pi-eye" class="ui-button-warn" label="Ver" (click)="irRoles(rowData)"></button>
                 </div>
               </div>
             </div>

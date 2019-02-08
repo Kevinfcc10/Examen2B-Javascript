@@ -1,3 +1,21 @@
+<div class="ui-g ui-fluid" *ngIf="bool">
+  <div class="ui-lg-2"></div>
+  <div class="ui-lg-8 borde">
+    <span>
+      <div class="ui-g ui-fluid ">
+        <div class="ui-lg-4">
+          <h2>MENSAJE DE ERROR</h2>
+        </div>
+        <div class="ui-lg-4">
+          <h3>Este Usuario ya tiene ese rol</h3>
+        </div>
+      </div>
+    </span>
+  </div>
+  <div class="ui-lg-2"></div>
+</div>
+
+
 <div class="ui-g ui-fluid">
   <div class="ui-lg-2"></div>
   <div class="ui-lg-3 ui-g-3">
@@ -30,7 +48,7 @@
                   {{rowData[col.field]}}
                 </div>
                 <div class="ui-gl-4">
-                  <p-button icon="pi pi-times"></p-button>
+                  <button pButton  type="button" icon="pi pi-times" (click)="deleteRol(rowData)"></button>
                 </div>
               </div>
             </div>
@@ -44,7 +62,7 @@
     <br><br><br>
     <div>
       <br>
-      <select>
+      <select id="selectRol">
         <option value="rol" disabled="true">Roles</option>
         <option value="usuario">USUARIO</option>
         <option value="administrador">ADMINISTRADOR</option>
@@ -55,7 +73,7 @@
       <div class="ui-g ui-fluid">
         <div class="ui-md-2"></div>
         <div class="ui-md-8">
-          <button pButton type="button" label="Agregar Rol"></button>
+          <button pButton type="button" label="Agregar Rol" (click)="nuevoRol()"></button>
         </div>
         <div class="ui-md-1"></div>
       </div>

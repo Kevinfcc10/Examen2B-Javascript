@@ -13,22 +13,22 @@
   <div class="p-md-6 p-lg-4">
     <br>
     <span class="ui-float-label">
-      <input id="nombre" type="text" size="32"  pInputText>
+      <input id="nombre" type="text" size="32" [(ngModel)]="nombreReg" name="nombre" pInputText>
       <label for="nombre">Nombre</label>
     </span>
     <br>
     <span class="ui-float-label">
-      <input id="correo" type="text" size="32"  pInputText>
+      <input id="correo" type="text" size="32" [(ngModel)]="correoReg" name="correo" pInputText>
       <label for="correo">Correo</label>
     </span>
     <br>
     <span class="ui-float-label">
-      <input id="pass" type="password" size="32" pInputText>
+      <input id="pass" type="password" size="32" [(ngModel)]="passReg" name="pass" pInputText>
       <label for="pass">Contraseña</label>
     </span>
     <br>
     <span class="ui-float-label">
-      <input id="born" type="password" size="32" pInputText>
+      <input id="born" type="text" size="32" [(ngModel)]="fecha_nacimientoReg" name="fecha" pInputText>
       <label for="born">Fecha nacimiento</label>
     </span>
   </div>

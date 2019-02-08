@@ -14,6 +14,15 @@
 </div>
 <br><br>
 <h3 ALIGN="center">ESTUDIANTES</h3>
+
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-lg-5"></div>
+  <div class="ui-g-12 ui-lg-2">
+    <button pButton type="button" icon="pi pi-plus" class="ui-button-success" label="Agregar Estudiante" (click)="irNuevoEstudiante()"></button>
+  </div>
+  <div class="ui-g-12 ui-lg-5"></div>
+</div>
+
 <div class="ui-g ui-fluid">
   <div class="ui-g-12 ui-lg-1"></div>
   <div class="ui-g-12 ui-lg-10">
@@ -30,14 +39,17 @@
           <td *ngFor="let col of columns; let indice = index">
             <div *ngIf="indice == 5">
               <div class="ui-g ui-fluid">
-                <div class="ui-g-12 ui-lg-4">
-                  <button pButton type="button" icon="pi pi-refresh" class="ui-button-warn"></button>
+                <div class="ui-g-12 ui-lg-3">
+                  <button pButton type="button" icon="pi pi-refresh" (click)="irActualizarEstudiante(rowData)"></button>
                 </div>
-                <div class="ui-g-12 ui-lg-4">
-                  <button pButton type="button" icon="pi pi-eye" class="ui-button-warn"></button>
+                <div class="ui-g-12 ui-lg-3">
+                  <button pButton type="button" icon="pi pi-eye" class="ui-button-warning" (click)="verMaterias(rowData)"></button>
                 </div>
-                <div class="ui-g-12 ui-lg-4">
-                  <button pButton type="button" icon="pi pi-trash" class="ui-button-warn" (click)="eliminarEstudiante(rowData)"></button>
+                <div class="ui-g-12 ui-lg-3">
+                  <button pButton type="button" icon="pi pi-trash" class="ui-button-danger" (click)="eliminarEstudiante(rowData)"></button>
+                </div>
+                <div class="ui-g-12 ui-lg-3">
+                  <button pButton type="button" icon="pi pi-plus" class="ui-button-success" (click)="irNuevaMateria(rowData)"></button>
                 </div>
               </div>
             </div>
@@ -52,13 +64,14 @@
   <div class="ui-g-12 ui-lg-1"></div>
 </div>
 
+
 <br>
 <h3 align="center">MATERIAS</h3>
 <br>
 <div class="ui-g ui-fluid">
   <div class="ui-g-12 ui-lg-1"></div>
   <div class="ui-g-12 ui-lg-10">
-    <p-table [columns]="cols2" [value]="materias">
+    <p-table [columns]="cols2" [value]="materiasAux">
       <ng-template pTemplate="header" let-columns>
         <tr>
           <th *ngFor="let col of columns">
@@ -72,13 +85,10 @@
             <div *ngIf="indice == 6">
               <div class="ui-g ui-fluid">
                 <div class="ui-g-12 ui-lg-4">
-                  <button pButton type="button" icon="pi pi-refresh" class="ui-button-warn"></button>
+                  <button pButton type="button" icon="pi pi-refresh" class="ui-button-warming" (click)="irMateria(rowData)"></button>
                 </div>
                 <div class="ui-g-12 ui-lg-4">
-                  <button pButton type="button" icon="pi pi-eye" class="ui-button-warn"></button>
-                </div>
-                <div class="ui-g-12 ui-lg-4">
-                  <button pButton type="button" icon="pi pi-trash" class="ui-button-warn"></button>
+                  <button pButton type="button" icon="pi pi-trash" class="ui-button-danger" (click)="eliminarMateria(rowData)"></button>
                 </div>
               </div>
             </div>

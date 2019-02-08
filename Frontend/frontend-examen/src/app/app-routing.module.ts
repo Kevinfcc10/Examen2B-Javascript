@@ -9,6 +9,8 @@ import {Ruta404Component} from "./componentes/ruta404/ruta404.component";
 import {HomeComponent} from "./componentes/home/home.component";
 import {UsuarioComponent} from "./componentes/usuario/usuario.component";
 import {InformacionEventoComponent} from "./componentes/informacion-evento/informacion-evento.component";
+import {MateriaComponent} from "./componentes/materia/materia.component";
+import {EstudianteComponent} from "./componentes/estudiante/estudiante.component";
 
 const routes: Routes = [
   {
@@ -51,6 +53,14 @@ const routes: Routes = [
   {
     path: 'ver',
     component: InformacionEventoComponent
+  },
+  {
+    path: 'materia',
+    component: MateriaComponent
+  },
+  {
+    path: 'estudiante',
+    component: EstudianteComponent
   },
   {
     path: 'no-encontrado',

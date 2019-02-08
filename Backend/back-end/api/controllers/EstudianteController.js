@@ -14,7 +14,7 @@ module.exports = {
     var estudianteCreado = await Estudiante.create(
       {
         nombres_estudiante: parametros.nombres,
-        apellidos_estudiante: parametros.apellidos,
+          apellidos_estudiante: parametros.apellidos,
         fecha_nacimiento_estudiante: parametros.nacimiento,
         semestre_actual_estudiante: parametros.semestre,
         graduado: parametros.graduado,

@@ -23,13 +23,17 @@ module.exports = {
     return res.ok(usuarioCreado);
   },
 
+  borrarRol: async function (req, res) {
+
+    const param = req.allParams();
+    var usuario = await Usuario.removeFromCollection(param.idUser, 'rolfk').members([param.idRol]);
+    return res.ok('Rol eliminado exitosamente');
+  },
 
   agregarRol: async function (req, res) {
 
     const param = req.allParams();
-
     var usuario = await Usuario.addToCollection(param.idUser, 'rolfk').members([param.idRol]);
-
     return res.ok('Rol agregado exitosamente');
   },
 
@@ -45,11 +49,28 @@ module.exports = {
     return res.ok(usuarioEncontrado);
   },
 
+  buscarUsuarios: async function (req, res){
+    const param = req.allParams();
+    var usuarioEncontrado = await  Usuario.find({
+      nombre_usuario: {'startsWith': param.nombre_usuario},
+      correo_usuario: {'startsWith' : param.correo_usuario}
+    });
+    return res.ok(usuarioEncontrado);
+  },
+
+  buscarUserid: async function (req, res){
+    const param = req.allParams();
+    var usuarioEncontrado = await  Usuario.find({
+      id:param.id,
+    })
+    return res.ok(usuarioEncontrado);
+  },
+
   buscarUsuarioid: async function (req, res){
     const param = req.allParams();
     var usuarioEncontrado = await  Usuario.find({
-      id: {'startsWith': param.id},
-    }).populate('estudiantes');
+      id: param.id,
+    }).populate('rolfk');
     return res.ok(usuarioEncontrado);
   },
 

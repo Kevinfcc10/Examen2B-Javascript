@@ -25,13 +25,23 @@ module.exports = {
   buscarEvento: async function (req, res) {
     const param = req.allParams();
 
-    var eventoEncontrado = await  Evento.find({
+    var eventoEncontrado = await  Eventos.find({
       id: param.id
-    });
+    }).populate('materiafk');
 
-    console.log(eventoEncontrado.id)
+    console.log(eventoEncontrado.id);
     return res.ok(eventoEncontrado);
   },
+
+  buscarTodosEventos: async function (req, res) {
+    const param = req.allParams();
+
+    var eventoEncontrado = await  Eventos.find();
+
+    console.log(eventoEncontrado.id);
+    return res.ok(eventoEncontrado);
+  }
+
 
 };
 

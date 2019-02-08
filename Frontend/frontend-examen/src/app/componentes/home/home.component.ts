@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from "primeng/api";
 import {VariablesGlobales} from "../servicios/variablesGlobales";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,9 @@ import {VariablesGlobales} from "../servicios/variablesGlobales";
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _router: Router
+  ) { }
 
   items: MenuItem[] = [
     {
@@ -51,4 +54,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  cerrarSesion(){
+    VariablesGlobales.isUser = false;
+    VariablesGlobales.isAdministrator = false;
+    VariablesGlobales.idStudent = -1;
+    VariablesGlobales.idUser = -1;
+    this._router.navigate(['/login'])
+  }
 }

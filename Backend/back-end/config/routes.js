@@ -20,12 +20,15 @@ module.exports.routes = {
 
   /*Rutas para Usuario*/
   'POST /Usuario/crear': 'UsuarioController.crearUsuario',
-  'POST /Usuario/crearUsuarioRol': 'UsuarioController.agregarRol',
+  'POST /Usuario/crearUsuarioRol': 'UsuarioController.agregarRol', //agregar roles con id
   'GET /Usuario/buscarRol' : 'UsuarioController.buscarUsuarioRol', // login
-  'GET /Usuario/:id' : 'UsuarioController.buscarUsuarioid',
+  'GET /Usuario/:id' : 'UsuarioController.buscarUsuarioid', //obtenre roles mediante id
+  'GET /Usuario/id/:id' : 'UsuarioController.buscarUserid', // obtener solo el usuario
+  'GET /Usuario/all' : 'UsuarioController.buscarUsuarios', // todos los usuarios
   'GET /Usuario/buscarEstudiante/:id' : 'UsuarioController.buscarUsuarioMaterias', // una vez logueado
   'PUT /Usuario/:id': 'UsuarioController.actualizarUsuario',
   'DELETE /Usuario/:id': 'UsuarioController.borrarUsuario',
+  'DELETE /Usuario/eliminarRol': 'UsuarioController.borrarRol',
 
   /*Rutas para Estudiante*/
   'GET /Estudiante/:id': 'EstudianteController.buscarEstudianteMateria',
@@ -35,6 +38,7 @@ module.exports.routes = {
 
   /*Rutas para Materia*/
   'GET /Materia/:id': 'MateriaController.buscarMateria',
+  'GET /Materia/id/:id': 'MateriaController.buscarMateriaId',
   'POST /Materia/': 'MateriaController.crearMateria',
   'POST /Materia/agregarEvento': 'MateriaController.agregarEvento',
   'PUT /Materia/:id': 'MateriaController.actualizarMateria',
@@ -42,6 +46,7 @@ module.exports.routes = {
 
   /*Rutas para Eventos*/
   'GET /Evento/:id':'EventoController.buscarEvento',
+  'GET /Evento/':'EventoController.buscarTodosEventos',
   'POST /Evento/':'EventoController.crearEvento',
 
 

@@ -46,6 +46,15 @@ module.exports = {
     return res.ok(materiaEncontrada);
   },
 
+  buscarMateriaId: async function (req, res) {
+    const param = req.allParams();
+
+    var materiaEncontrada = await  Materia.find({
+      id: param.id
+    })
+
+    return res.ok(materiaEncontrada);
+  },
 
   actualizarMateria: async function (req,res){
     const param = req.allParams();
@@ -69,10 +78,10 @@ module.exports = {
     const param = req.allParams();
 
     var materiaEliminada = await Materia.destroy({id: param.id}).fetch();
-    //await Estudiante.removeFromCollection(param.id, 'materiasFk').members([1,2]);
+    await Materia.removeFromCollection(param.id, 'eventofk').members([1,2,3,4,5,6]);
 
     console.log(materiaEliminada)
-    return res.ok('estudiante eliminado');
+    return res.ok('materia eliminado');
   },
 
 

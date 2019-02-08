@@ -6,8 +6,8 @@
       <span class="ui-inputgroup-addon">
         <i class="pi pi-search"></i>
       </span>
-      <input type="text" pInputText placeholder="Busque usuarios por nombre o correo">
-      <button pButton type="button" icon="fa fa-superpowers" class="ui-button-warn" label="Buscar"></button>
+      <input type="text" pInputText placeholder="Busque usuarios por nombre o correo" [(ngModel)]="busqueda" name="busqueda">
+      <button pButton type="button" icon="fa fa-superpowers" class="ui-button-warn" label="Buscar" (click)="capturarInformacion()"></button>
     </div>
   </div>
   <div class="ui-g-12 ui-md-3"></div>
@@ -17,7 +17,7 @@
 <div class="ui-g ui-fluid">
   <div class="ui-g-12 ui-lg-1"></div>
   <div class="ui-g-12 ui-lg-10">
-    <p-table [columns]="cols" [value]="sales">
+    <p-table [columns]="cols" [value]="usersAux">
       <ng-template pTemplate="header" let-columns>
         <tr>
           <th *ngFor="let col of columns">
@@ -31,7 +31,7 @@
             <div *ngIf="indice == 3">
               <div class="ui-g ui-fluid">
                 <div class="ui-g-12 ui-lg-6">
-                  <button pButton type="button" icon="pi pi-refresh" class="ui-button-warn" label="Actualizar" (click)="irRoles()"></button>
+                  <button pButton type="button" icon="pi pi-refresh" class="ui-button-warn" label="Actualizar" (click)="irRoles(rowData)"></button>
                 </div>
                 <div class="ui-g-12 ui-lg-6">
                   <button pButton type="button" icon="pi pi-trash" class="ui-button-warn" label="Borrar" (click)="eliminar()"></button>
