@@ -41,7 +41,6 @@ export class EventosComponent implements OnInit {
       queryParams: {
         id: eventito.id,
         nombre: eventito.nombre,
-        //fecha: eventito.fecha
       }
     }
     console.log(eventito)
@@ -59,7 +58,6 @@ export class EventosComponent implements OnInit {
     const obsevable$ = this._studentService.obternerEventos();
     obsevable$.subscribe(
       (resultado:any)=>{
-        console.log(resultado)
         for (let i in resultado){
           let valor: NuevoEvento = {
             nombre: resultado[i].nombre_evento,

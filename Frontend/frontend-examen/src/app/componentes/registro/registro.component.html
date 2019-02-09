@@ -18,7 +18,7 @@
     </span>
     <br>
     <span class="ui-float-label">
-      <input id="correo" type="text" size="32" [(ngModel)]="correoReg" name="correo" pInputText>
+      <input id="correo" type="email" size="32" [(ngModel)]="correoReg" Validators.email  name="correo" pInputText>
       <label for="correo">Correo</label>
     </span>
     <br>
@@ -28,7 +28,7 @@
     </span>
     <br>
     <span class="ui-float-label">
-      <input id="born" type="text" size="32" [(ngModel)]="fecha_nacimientoReg" name="fecha" pInputText>
+      <input id="born" type="date" size="32" [(ngModel)]="fecha_nacimientoReg" name="fecha" pInputText>
       <label for="born">Fecha nacimiento</label>
     </span>
   </div>

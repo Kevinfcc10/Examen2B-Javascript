@@ -25,6 +25,9 @@ import {UsuarioService} from "./componentes/servicios/usuario-service";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {EstudianteService} from "./componentes/servicios/estudiante-service";
+import { NuevoEventoComponent } from './componentes/nuevo-evento/nuevo-evento.component';
+import {EsAdministrador} from "./componentes/servicios/EsAdministrador ";
+import {AuthService} from "./componentes/servicios/AuthService";
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import {EstudianteService} from "./componentes/servicios/estudiante-service";
     InformacionEventoComponent,
     AtributosMateriaComponent,
     MateriaComponent,
-    EstudianteComponent
+    EstudianteComponent,
+    NuevoEventoComponent
   ],
   imports: [
     BrowserModule,
@@ -55,9 +59,9 @@ import {EstudianteService} from "./componentes/servicios/estudiante-service";
     BrowserAnimationsModule,
     MultiSelectModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [UsuarioService, EstudianteService],
+  providers: [UsuarioService, EstudianteService, EsAdministrador, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,13 +4,14 @@ import {LoginComponent} from "./componentes/login/login.component";
 import {AdministradorComponent} from "./componentes/administrador/administrador.component";
 import {RolesComponent} from "./componentes/roles/roles.component";
 import {RegistroComponent} from "./componentes/registro/registro.component";
-import {EventosComponent} from "./componentes/eventos/eventos.component";
+import {EventosComponent, NuevoEvento} from "./componentes/eventos/eventos.component";
 import {Ruta404Component} from "./componentes/ruta404/ruta404.component";
 import {HomeComponent} from "./componentes/home/home.component";
 import {UsuarioComponent} from "./componentes/usuario/usuario.component";
 import {InformacionEventoComponent} from "./componentes/informacion-evento/informacion-evento.component";
 import {MateriaComponent} from "./componentes/materia/materia.component";
 import {EstudianteComponent} from "./componentes/estudiante/estudiante.component";
+import {NuevoEventoComponent} from "./componentes/nuevo-evento/nuevo-evento.component";
 
 const routes: Routes = [
   {
@@ -25,7 +26,8 @@ const routes: Routes = [
 
   {
     path: 'roles',
-    component: RolesComponent
+    component: RolesComponent,
+
   },
   {
     path: 'registro',
@@ -52,7 +54,7 @@ const routes: Routes = [
   },
   {
     path: 'ver',
-    component: InformacionEventoComponent
+    component: InformacionEventoComponent,
   },
   {
     path: 'materia',
@@ -61,6 +63,10 @@ const routes: Routes = [
   {
     path: 'estudiante',
     component: EstudianteComponent
+  },
+  {
+    path: 'evento',
+    component: NuevoEventoComponent
   },
   {
     path: 'no-encontrado',
@@ -72,8 +78,10 @@ const routes: Routes = [
   }
 ];
 
+
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

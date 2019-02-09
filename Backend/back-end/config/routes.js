@@ -17,8 +17,11 @@ module.exports.routes = {
   /*Rutas para roles*/
   'POST /Rol/crear' : 'RolController.crearRol',
   'GET /Rol/buscar' : 'RolController.getRol',
+  'GET /Rol/' : 'RolController.getAllRol',
 
   /*Rutas para Usuario*/
+  'POST /Usuario/login': 'UsuarioController.login',
+
   'POST /Usuario/crear': 'UsuarioController.crearUsuario',
   'POST /Usuario/crearUsuarioRol': 'UsuarioController.agregarRol', //agregar roles con id
   'GET /Usuario/buscarRol' : 'UsuarioController.buscarUsuarioRol', // login

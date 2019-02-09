@@ -27,6 +27,13 @@ module.exports = {
     return res.ok(obtenerRol);
   },
 
+  getAllRol: async function (req, res){
+
+    var obtenerRol = await Rol.find();
+
+    return res.ok(obtenerRol);
+  }
+
 
 };
 

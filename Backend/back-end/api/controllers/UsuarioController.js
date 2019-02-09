@@ -7,6 +7,24 @@
 
 module.exports = {
 
+
+  login: async (req, res) => {
+    const parametros = req.allParams();
+    var usuarioLogeado = await Usuario.find({
+      correo_usuario: parametros.correo,
+      password_usuario: parametros.password,
+    }).populate('rolfk');
+
+    const error = usuarioLogeado.length === 0;
+
+    if (!error) {
+      return res.ok(usuarioLogeado[0]);
+    } else {
+      return res.badRequest({mensaje: 'Usuario Invalido'});
+    }
+
+  },
+
   crearUsuario: async function (req,res) {
     const parametros = req.allParams();
 

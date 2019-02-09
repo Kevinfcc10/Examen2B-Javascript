@@ -157,4 +157,16 @@ export class UsuarioComponent implements OnInit {
 
     this._router.navigate(['/materia'],parametros);
   }
+
+  agregarEvento(materia:MateriaInterface){
+
+    let parametros: NavigationExtras  = {
+      queryParams: {
+        idMateria:materia.id,
+      }
+    }
+
+    this._router.navigate(['/evento'],parametros)
+
+  }
 }

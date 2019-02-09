@@ -41,7 +41,6 @@ export class InformacionEventoComponent implements OnInit {
           for(let i in valor){
             this.arregloMateriaFK[i] = valor[i].materiafk
           }
-          console.log(this.arregloMateriaFK)
         }
       )
     }

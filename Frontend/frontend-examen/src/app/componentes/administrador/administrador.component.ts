@@ -61,8 +61,17 @@ export class AdministradorComponent implements OnInit {
     this._router.navigate(['/roles'],parametros);
   }
 
-  eliminar(){
+  eliminar(rolUsuario){
 
+    const indice = this.usersAux.findIndex(
+      (usuarioBuscar) => {
+        this._userService.eliminarUsuario(rolUsuario.id);
+        return usuarioBuscar.nombre_usuario === rolUsuario.nombre_usuario
+      }
+    );
+    this.usersAux.splice(indice,1);
+    //this._userService.eliminarUsuario(rolUsuario.id)
+    console.log(rolUsuario)
   }
 
 }

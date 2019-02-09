@@ -43,6 +43,14 @@ export class UsuarioService {
     return this._httpClient.post('http://localhost:1337/Usuario/crear',user).subscribe()
   }
 
+  eliminarUsuario(id){
+    return this._httpClient.delete('http://localhost:1337/Usuario/'+id,httpOptions)
+      .subscribe(ok=>{console.log(ok + ' eliminado con exito')})
+  }
+
+  obtenerRoles(){
+    return this._httpClient.get('http://localhost:1337/Rol/');
+  }
 }
 
 export interface NuevoRol {
@@ -92,6 +100,14 @@ export interface UsuarioNuevo {
   password,
   nacimiento,
   rol
+}
+
+export interface EventoInterface {
+  id?:number,
+  nombre:string,
+  fecha: string,
+  latitud?: number,
+  longitud?: number
 }
 
 const httpOptions = {

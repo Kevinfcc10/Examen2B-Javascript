@@ -49,6 +49,26 @@ export class EstudianteService {
     return this._httpClient.get('http://localhost:1337/Evento/'+id);
   }
 
+  registrarEvento(eventito){
+    return this._httpClient.post('http://localhost:1337/Evento/',eventito)
+  }
+
+  agregarEventoMateria(idMat, idEve){
+
+    console.log(idMat + ' ' + idEve)
+    var ids: addEvento = {
+      idMateria: idMat,
+      idEvento: idEve
+    }
+
+    return this._httpClient.post('http://localhost:1337/Materia/agregarEvento',ids).subscribe()
+  }
+
+}
+
+export interface addEvento {
+  idMateria: number,
+  idEvento: number
 }
 
 export interface Eventos {

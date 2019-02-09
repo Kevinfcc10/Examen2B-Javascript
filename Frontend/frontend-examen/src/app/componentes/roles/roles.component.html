@@ -63,9 +63,11 @@
     <div>
       <br>
       <select id="selectRol">
-        <option value="rol" disabled="true">Roles</option>
+        <option value="rol" *ngFor="let r of rolesitos">{{r}}</option>
+        <!--<option value="rol" disabled="true">Roles</option>
         <option value="usuario">USUARIO</option>
         <option value="administrador">ADMINISTRADOR</option>
+        -->
       </select>
     </div>
     <div>

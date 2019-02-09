@@ -31,6 +31,7 @@ export class RolesComponent implements OnInit {
   fecha
   datos
 
+  rolesitos:any[] = []
 
   ngOnInit() {
     this.datoUser = this.route.queryParamMap.pipe(map(params=> params.get('idUser1') || ''));
@@ -58,7 +59,16 @@ export class RolesComponent implements OnInit {
           ]
         }
       )
+      var observable = this._userService.obtenerRoles()
+
+      observable.subscribe((valor)=>{
+        for (let i in valor){
+          //console.log(valor[i].nombre_rol)
+          this.rolesitos.push(valor[i].nombre_rol)
+        }
+      })
     }
+
   }
 
   deleteRol(rol: rolInterface){
